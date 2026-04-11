@@ -1,11 +1,11 @@
-export type Category = 
+export type Category =
+  | 'Healthcare'
   | 'Orphanage and Social Support'
   | 'Development and Humanitarian Aid'
   | 'Disabled Individuals and Social Integration'
   | 'Education'
   | 'Poverty Alleviation and Food Security'
-  | 'Animal'
-  | 'Healthcare';
+  | 'Animal';
 
 export interface Organization {
   id: string;
@@ -50,6 +50,7 @@ export const transactions: Transaction[] = [
   { id: 't2', merchant: 'Uber', date: '2026-04-11', originalAmount: 146.50, roundedAmount: 150.00, roundUpCut: 3.50 },
   { id: 't3', merchant: 'Starbucks', date: '2026-04-11', originalAmount: 85.00, roundedAmount: 90.00, roundUpCut: 5.00 },
   { id: 't4', merchant: 'Talabat', date: '2026-04-12', originalAmount: 312.20, roundedAmount: 315.00, roundUpCut: 2.80 },
+  { id: 't5', merchant: 'Costa', date: '2026-04-12', originalAmount: 418.36, roundedAmount: 419.00, roundUpCut: 0.64 },
 ];
 
 export const organizations: Organization[] = [
@@ -168,11 +169,12 @@ export const organizations: Organization[] = [
 ];
 
 export const categories: Category[] = [
+  'Healthcare',
   'Orphanage and Social Support',
   'Development and Humanitarian Aid',
   'Disabled Individuals and Social Integration',
   'Education',
   'Poverty Alleviation and Food Security',
   'Animal',
-  'Healthcare'
+
 ];

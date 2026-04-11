@@ -19,6 +19,8 @@
   border-radius: var(--radius-full);
   font-weight: 700;
   font-size: 14px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .slider {
