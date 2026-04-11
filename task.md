@@ -1,0 +1,11 @@
+- `[x]` Initialize Next.js Projct
+- `[x]` Setup Design System & Theme CSS (Colors: #275546, #7AA278, #F3C775, #D39F4D, #FFFFFF)
+- `[x]` Scaffold Mock Data (`src/data.ts`)
+- `[x]` Create Global Layout (Mobile dimensions, Navigation Bar)
+- `[x]` Build Home Page (`/`)
+- `[x]` Build Discovery Categories (`/discovery`)
+- `[x]` Build Organization Profile and Donation Flow Modal (`/org/[id]`)
+- `[x]` Build Transations Settings Page (`/transactions`)
+- `[x]` Build Transations Settings Page (`/transactions`)
+- `[x]` Build Client Profile & Impact Dashboard (`/profile`)
+- `[x]` Polish animations and verify mobile responsiveness
