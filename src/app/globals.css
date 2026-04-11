@@ -42,11 +42,12 @@ a {
 .app-container {
   max-width: 480px;
   margin: 0 auto;
-  min-height: 100vh;
+  height: 100vh;
+  height: 100dvh;
   background-color: var(--color-surface);
   position: relative;
   box-shadow: var(--shadow-lg);
-  overflow-x: hidden;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
 }

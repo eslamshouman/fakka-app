@@ -5,6 +5,9 @@ import NavBar from "../components/NavBar";
 export const metadata: Metadata = {
   title: "Fakka App",
   description: "Round up your transactions for charity",
+  icons: {
+    icon: '/logo.png'
+  }
 };
 
 export const viewport: Viewport = {

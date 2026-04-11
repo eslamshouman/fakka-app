@@ -12,7 +12,9 @@ export default function Home() {
   return (
     <div className={`animate-slide-up ${styles.container}`}>
       <header className={styles.header}>
-        <span className={styles.greeting}>Hello, {mockUser.name.split(' ')[0]}</span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <img src="/logo.png" alt="Fakka Logo" style={{ height: '90px', objectFit: 'contain' }} />
+        </div>
         <div className={styles.avatar}>
           {mockUser.name.charAt(0)}
         </div>
@@ -61,7 +63,7 @@ export default function Home() {
         )}
 
         <Link href="/discovery" className={styles.addBtnWrapper} style={{ marginTop: '20px', display: 'block' }}>
-          <button className="btn-primary glass" style={{ gap: '8px' }}>
+          <button className="btn-primary" style={{ gap: '8px' }}>
             <Plus size={20} /> Add Non-Profit Organization
           </button>
         </Link>

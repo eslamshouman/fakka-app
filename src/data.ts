@@ -33,7 +33,7 @@ export interface Transaction {
 }
 
 export const mockUser = {
-  name: 'Ahmed Youssef',
+  name: 'Fatma Shouman',
   memberSince: '2025',
   balance: 45.50,
   maxRoundUp: 5,
