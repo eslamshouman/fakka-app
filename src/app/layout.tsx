@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import NavBar from "../components/NavBar";
 
+import { LanguageProvider } from '../contexts/LanguageContext';
+
 export const metadata: Metadata = {
   title: "Fakka App",
   description: "Round up your transactions for charity",
@@ -25,12 +27,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <main className="app-container">
-          <div className="page-content window-scroll">
-            {children}
-          </div>
-          <NavBar />
-        </main>
+        <LanguageProvider>
+          <main className="app-container">
+            <div className="page-content window-scroll">
+              {children}
+            </div>
+            <NavBar />
+          </main>
+        </LanguageProvider>
       </body>
     </html>
   );

@@ -165,6 +165,18 @@ export const organizations: Organization[] = [
       { amount: 100, impact: 'Emergency First Aid Kit' },
       { amount: 500, impact: 'Disaster Relief Package' }
     ]
+  },
+  {
+    id: 'org-resala',
+    name: 'Resala Charity Organization',
+    contact: '19450',
+    email: 'contact_us@resala.org',
+    description: 'Focuses on community development. It offers over 31 activities, including orphan care, assistance for people with disabilities, literacy training, and poverty alleviation.',
+    category: 'Orphanage and Social Support',
+    impactMetrics: [
+      { amount: 150, impact: 'Support an Orphan per month' },
+      { amount: 800, impact: 'Skills Training Program' }
+    ]
   }
 ];
 

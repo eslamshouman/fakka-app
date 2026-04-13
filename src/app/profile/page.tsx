@@ -1,10 +1,13 @@
 'use client';
 
-import { Settings, LogOut, TrendingUp, HandHeart, Sparkles } from 'lucide-react';
+import { Settings, LogOut, TrendingUp, HandHeart, Sparkles, Globe } from 'lucide-react';
 import { mockUser, organizations } from '@/data';
 import styles from './profile.module.css';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 export default function Profile() {
+  const { t, language, toggleLanguage } = useLanguage();
+
   const getImpact = (orgId: string, amount: number) => {
     const org = organizations.find(o => o.id === orgId);
     if (!org) return "Support provided";
@@ -16,9 +19,9 @@ export default function Profile() {
       eligibleMetrics.sort((a, b) => b.amount - a.amount);
       const primaryMetric = eligibleMetrics[0];
       const count = Math.floor(amount / primaryMetric.amount);
-      return `${count}x ${primaryMetric.impact}`;
+      return `${count}x ${t(primaryMetric.impact)}`;
     }
-    return "General operational support";
+    return t('profile.generalSupport');
   };
 
   return (
@@ -26,11 +29,11 @@ export default function Profile() {
       <header className={styles.header}>
         <div className={styles.userInfo}>
           <div className={styles.avatarLarge}>
-            {mockUser.name.charAt(0)}
+            {t(mockUser.name).charAt(0)}
           </div>
           <div>
-            <h1 className="title-md" style={{ marginBottom: 0 }}>{mockUser.name}</h1>
-            <p className="text-body" style={{ fontSize: '13px' }}>Member since {mockUser.memberSince}</p>
+            <h1 className="title-md" style={{ marginBottom: 0 }}>{t(mockUser.name)}</h1>
+            <p className="text-body" style={{ fontSize: '13px' }}>{t('profile.memberSince')} {mockUser.memberSince}</p>
           </div>
         </div>
         <button className={styles.iconBtn}>
@@ -42,21 +45,21 @@ export default function Profile() {
         <div className={`card ${styles.statCard}`}>
           <HandHeart size={24} color="var(--color-primary-light)" className={styles.statIcon} />
           <div>
-            <p className="text-body" style={{ fontSize: '13px' }}>Total Donated</p>
-            <h2 className="title-md">EGP {mockUser.totalDonated}</h2>
+            <p className="text-body" style={{ fontSize: '13px' }}>{t('profile.totalDonated')}</p>
+            <h2 className="title-md">{t('home.currency')} {mockUser.totalDonated}</h2>
           </div>
         </div>
         <div className={`card ${styles.statCard}`}>
           <TrendingUp size={24} color="var(--color-accent-dark)" className={styles.statIcon} />
           <div>
-            <p className="text-body" style={{ fontSize: '13px' }}>Avg/Month</p>
-            <h2 className="title-md">EGP {mockUser.avgSpendPerMonth}</h2>
+            <p className="text-body" style={{ fontSize: '13px' }}>{t('profile.avgMonth')}</p>
+            <h2 className="title-md">{t('home.currency')} {mockUser.avgSpendPerMonth}</h2>
           </div>
         </div>
       </div>
 
       <div style={{ marginTop: '12px' }}>
-        <h2 className="title-md" style={{ marginBottom: '16px' }}>Your Local Impact</h2>
+        <h2 className="title-md" style={{ marginBottom: '16px' }}>{t('profile.localImpact')}</h2>
         
         <div className={styles.impactList}>
           {mockUser.favorites.map((fav, i) => {
@@ -68,9 +71,9 @@ export default function Profile() {
               <div key={i} className={`card ${styles.impactCard}`}>
                 <div className="flex-between">
                   <h3 style={{ fontSize: '15px', fontWeight: '600', color: 'var(--color-primary-dark)' }}>
-                    {org?.name}
+                    {org?.name ? t(org.name) : ""}
                   </h3>
-                  <span className={styles.allocatedAmount}>EGP {allocatedAmount}</span>
+                  <span className={styles.allocatedAmount}>{t('home.currency')} {allocatedAmount}</span>
                 </div>
                 
                 <div className={styles.impactHighlight}>
@@ -86,13 +89,22 @@ export default function Profile() {
       </div>
 
       <div className={styles.actionLinks}>
+        <button className={styles.listItem} onClick={toggleLanguage} style={{ display: 'flex', justifyContent: 'space-between', width: '100%', border: 'none', background: 'none' }}>
+          <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+            <Globe size={20} color="var(--color-primary-dark)" />
+            <span>{t('settings.language')}</span>
+          </div>
+          <span style={{ fontSize: '13px', color: 'var(--color-primary-light)', fontWeight: 600 }}>
+             {language === 'en' ? 'عربي' : 'EN'}
+          </span>
+        </button>
         <button className={styles.listItem}>
           <Settings size={20} />
-          <span>Account Settings</span>
+          <span>{t('profile.accountSettings')}</span>
         </button>
         <button className={styles.listItem}>
           <HandHeart size={20} />
-          <span>Tax Receipts</span>
+          <span>{t('profile.taxReceipts')}</span>
         </button>
       </div>
     </div>
