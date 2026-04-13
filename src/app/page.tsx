@@ -48,7 +48,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h3 style={{ fontSize: '15px', fontWeight: '600', color: 'var(--color-primary-dark)' }}>
-                      {t(org.name)}
+                      {t(org.name || '')}
                     </h3>
                     <p style={{ fontSize: '13px', color: 'var(--color-text-muted)' }}>
                       {org.percentage}% {t('home.allocation')} • {org.frequency}
